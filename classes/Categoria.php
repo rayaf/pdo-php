@@ -12,7 +12,7 @@ class Categoria{
     }
   }
 
-  public function listar(){
+  public static function listar(){
     $query = "SELECT id, nome FROM categorias";
     $conexao = Conexao::pegarConexao();
     $resultado = $conexao->query($query);
