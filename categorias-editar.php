@@ -1,6 +1,10 @@
 <?php require_once 'global.php'; ?>
 <?php 
-    $categoria = new Categoria($_GET['id']);
+    try {
+        $categoria = new Categoria($_GET['id']);
+    } catch(Exception $e) {
+        Erro::trataErro($e);
+    }
 ?>
 <?php require_once 'cabecalho.php' ?>
 <div class="row">

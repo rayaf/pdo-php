@@ -1,8 +1,11 @@
 <?php 
   require_once 'global.php';
+  try{
+    $categoria = new Categoria($_GET['id']);
 
-  $categoria = new Categoria($_GET['id']);
+    $categoria->excluir();
 
-  $categoria->excluir();
-
-  header('location: categorias.php');
+    header('location: categorias.php');
+  } catch(Exception $e) {
+    Erro::trataErro($e);
+  }
