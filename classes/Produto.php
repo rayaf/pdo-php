@@ -61,4 +61,12 @@
       $stmt->bindValue(':id', $this->id);
       $stmt->execute();
     }
+
+    public function excluir(){
+      $query = "DELETE FROM produtos WHERE id = :id";
+      $conexao = Conexao::pegarConexao();
+      $stmt = $conexao->prepare($query);
+      $stmt->bindValue('id', $this->id);
+      $stmt->execute();
+    }
   }
